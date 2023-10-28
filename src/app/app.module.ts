@@ -28,6 +28,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 
 // Componentes do projeto
+import { NavComponent } from './components/nav/nav.component';
+
 /* import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -51,6 +53,7 @@ import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent,
     /* NavComponent,
     HomeComponent,
     HeaderComponent,
