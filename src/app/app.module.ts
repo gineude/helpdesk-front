@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 // Para realizar requisições HTTP
 import { HttpClientModule } from '@angular/common/http';
 
+// Para validar o token de autenticação
+import { JwtModule } from "@auth0/angular-jwt";
+
 // Imports para componentes do Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -88,6 +91,7 @@ import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-
     ReactiveFormsModule,
     // Requisições http
     HttpClientModule,
+    JwtModule,
     // Angular Material
     MatFormFieldModule,
     MatPaginatorModule,
