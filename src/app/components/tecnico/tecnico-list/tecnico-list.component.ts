@@ -3,6 +3,7 @@ import { MatPaginator, MatPaginatorIntl } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 import { Tecnico } from "src/app/models/tecnico";
 import { TecnicoService } from "src/app/service/tecnico.service";
+import { TituloService } from "src/app/service/titulo.service";
 
 @Component({
 	selector: "app-tecnico-list",
@@ -18,10 +19,14 @@ export class TecnicoListComponent implements OnInit {
 
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 
-	constructor(private service: TecnicoService) {}
+	constructor(
+		private service: TecnicoService,
+		private tituloService: TituloService
+	) {}
 
 	ngOnInit() {
 		this.findAll();
+		this.tituloService.titulo = "Listando Técnicos";
 	}
 
 	findAll() {

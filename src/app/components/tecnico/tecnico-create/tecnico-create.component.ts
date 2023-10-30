@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TituloService } from 'src/app/service/titulo.service';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TecnicoCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tituloService: TituloService) { }
 
   ngOnInit(): void {
+    this.tituloService.titulo = "Cadastrar Técnico";
   }
 
 }

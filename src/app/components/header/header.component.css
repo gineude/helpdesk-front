@@ -6,8 +6,9 @@
 
 h1 {
     width: 70%;
+    text-align: center;
     margin-top: 1rem;
     padding: 1rem 10%;
-    border-radius: 2rem;
+    border-radius: .6rem;
     border: 1px solid rgb(161, 159, 159);
 }

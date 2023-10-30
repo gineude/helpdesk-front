@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import { TituloService } from 'src/app/service/titulo.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements AfterViewInit {
 
-  constructor() { }
+  titulo: string = '';
 
-  ngOnInit(): void {
+  constructor(private service: TituloService) { }
+
+  ngAfterViewInit(): void {
+    this.titulo = this.service.titulo;
   }
 
 }

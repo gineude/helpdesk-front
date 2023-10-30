@@ -1,0 +1,28 @@
+.container {
+    width: 87%;
+    margin: auto;
+    padding: 1rem 1rem 3rem 1rem;
+    border-radius: .6rem;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    height: 10rem;
+}
+
+.section-checkbox {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-cancelar {
+    margin-right: 1rem;
+}
