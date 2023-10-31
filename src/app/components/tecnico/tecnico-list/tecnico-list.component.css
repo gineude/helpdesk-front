@@ -21,3 +21,12 @@ h1 {
     width: 100%;
     float: left !important;
 }
+
+.edit {
+    color: #1591E2;
+}
+
+.delete {
+    color: #e0361f;
+    margin-left: 1rem;
+}
