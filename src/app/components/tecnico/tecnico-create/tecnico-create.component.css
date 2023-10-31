@@ -17,6 +17,10 @@ img {
     height: 10rem;
 }
 
+mat-icon {
+    opacity: .5;
+}
+
 .section-checkbox {
     width: 50%;
     display: flex;

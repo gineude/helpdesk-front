@@ -8,32 +8,62 @@
 
 		<mat-form-field class="fullWidth" appearance="outline">
 			<mat-label>Nome</mat-label>
-			<input matInput placeholder="Ex.. fulano de tal" />
+			<input
+				[(ngModel)]="tecnico.nome"
+				[formControl]="nome"
+				name="nome"
+				required
+				matInput
+				maxlength="50"
+				placeholder="Ex.. fulano de tal"
+			/>
 			<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 		</mat-form-field>
 
 		<mat-form-field class="fullWidth" appearance="outline">
 			<mat-label>CPF</mat-label>
-			<input matInput placeholder="Ex.. 000.000.000-00" />
+			<input
+				[(ngModel)]="tecnico.cpf"
+				[formControl]="cpf"
+				name="cpf"
+				required
+				matInput
+				mask="000.000.000-00"
+				placeholder="Ex.. 000.000.000-00"
+			/>
 			<mat-icon matSuffix>pin</mat-icon>
 		</mat-form-field>
 
 		<mat-form-field class="fullWidth" appearance="outline">
 			<mat-label>E-mail</mat-label>
-			<input matInput placeholder="Ex.. fulano@mail.com" />
+			<input
+				[(ngModel)]="tecnico.email"
+				[formControl]="email"
+				name="email"
+				required
+				matInput
+				placeholder="Ex.. fulano@mail.com"
+			/>
 			<mat-icon matSuffix>email</mat-icon>
 		</mat-form-field>
 
 		<mat-form-field class="fullWidth" appearance="outline">
 			<mat-label>Senha</mat-label>
-			<input type="password" matInput placeholder="Ex.. 1234" />
+			<input
+				[(ngModel)]="tecnico.senha"
+				[formControl]="senha"
+				required
+				type="password"
+				matInput
+				placeholder="Ex.. 1234"
+			/>
 			<mat-icon matSuffix>password</mat-icon>
 		</mat-form-field>
 
 		<section class="section-checkbox">
-			<mat-checkbox class="margin">Admin</mat-checkbox>
-			<mat-checkbox class="margin">Cliente</mat-checkbox>
-			<mat-checkbox class="margin">Técnico</mat-checkbox>
+			<mat-checkbox (click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
+			<mat-checkbox (click)="addPerfil(1)" class="margin" color="primary">Cliente</mat-checkbox>
+			<mat-checkbox (click)="addPerfil(2)" class="margin" color="primary">Técnico</mat-checkbox>
 		</section>
 
 		<div class="fullWidth" align="end">
@@ -41,10 +71,17 @@
 				class="button-cancelar mat-elevation-z2"
 				mat-raised-button
 				color="warn"
+				routerLink="../"
 			>
 				cancelar
 			</button>
-			<button class="mat-elevation-z4" mat-raised-button color="primary">
+			<button
+                (click)="create()"
+				[disabled]="!validaCampos()"
+				class="mat-elevation-z4"
+				mat-raised-button
+				color="primary"
+			>
 				Cadastrar
 			</button>
 		</div>
