@@ -29,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Componentes do projeto
 import { NavComponent } from './components/nav/nav.component';
@@ -42,6 +43,8 @@ import { AuthInterceptorProvider } from './interceptor/auth.interceptor';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
 import { TituloService } from './service/titulo.service';
 import { NgxMaskModule } from 'ngx-mask';
+import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
+import { ConfirmaComponent } from './components/infra/confirma/confirma.component';
 /*
 import { NavComponent } from './components/nav/nav.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
@@ -55,7 +58,9 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     HeaderComponent,
     TecnicoListComponent,
     LoginComponent,
-    TecnicoCreateComponent
+    TecnicoCreateComponent,
+    TecnicoUpdateComponent,
+    ConfirmaComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +87,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatDialogModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

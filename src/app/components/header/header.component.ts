@@ -13,7 +13,9 @@ export class HeaderComponent implements AfterViewInit {
   constructor(private service: TituloService) { }
 
   ngAfterViewInit(): void {
-    this.titulo = this.service.titulo;
+    Promise.resolve().then(() => {
+      this.titulo = this.service.titulo;
+    });
   }
 
 }

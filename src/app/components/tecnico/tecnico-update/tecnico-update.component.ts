@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Perfil } from "src/app/models/perfil";
 import { Perfis } from "src/app/models/perfis";
@@ -10,11 +10,11 @@ import { TituloService } from "src/app/service/titulo.service";
 import { Validacao } from "src/app/validacao/validacao";
 
 @Component({
-	selector: "app-tecnico-create",
-	templateUrl: "./tecnico-create.component.html",
-	styleUrls: ["./tecnico-create.component.css"],
+	selector: "app-tecnico-update",
+	templateUrl: "./tecnico-update.component.html",
+	styleUrls: ["./tecnico-update.component.css"],
 })
-export class TecnicoCreateComponent implements OnInit {
+export class TecnicoUpdateComponent implements OnInit {
 	tecnico: Tecnico = {
 		id: "",
 		cpf: "",
@@ -39,25 +39,42 @@ export class TecnicoCreateComponent implements OnInit {
 		private router: Router,
 		private toastr: ToastrService,
 		private service: TecnicoService,
-		private tituloService: TituloService
+		private tituloService: TituloService,
+		private activeRouter: ActivatedRoute
 	) {}
 
 	ngOnInit(): void {
-		this.tituloService.titulo = "Cadastrar Técnico";
+		this.tituloService.titulo = "Atualizar Técnico";
+		this.tecnico.id = this.activeRouter.snapshot.paramMap.get("id");
+		this.findById();
 	}
 
-	create(): void {
+	findById(): void {
+		this.service.findById(this.tecnico.id).subscribe((response) => {
+			this.tecnico.id = response.id;
+			this.tecnico.cpf = response.cpf;
+			this.tecnico.nome = response.nome;
+			this.tecnico.email = response.email;
+			this.tecnico.senha = response.senha;
+			this.tecnico.dataCriacao = response.dataCriacao;
+
+			Perfis.toList(response.perfis);
+			this.validaCampos();
+		});
+	}
+
+	update(): void {
 		this.separarPerfis();
-		this.service.create(this.tecnico).subscribe(
+		this.service.update(this.tecnico).subscribe(
 			(response) => {
 				this.toastr.success(
-					"Técnico cadastrado com sucesso!",
-					"Cadastro"
+					"Técnico atualizado com sucesso!",
+					"Atualização"
 				);
 				this.router.navigate(["tecnicos"]);
 			},
 			(ex) => {
-				if (ex.error.erros) {
+				if (ex.error && ex.error.erros) {
 					ex.error.errors.array.forEach((element) => {
 						this.toastr.error(element.message);
 					});
