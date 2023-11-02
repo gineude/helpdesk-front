@@ -49,6 +49,7 @@ import { ClienteCreateComponent } from "./components/cliente/cliente-create/clie
 import { ClienteUpdateComponent } from "./components/cliente/cliente-update/cliente-update.component";
 import { ConfirmaComponent } from './components/infra/confirma/confirma.component';
 import { TituloService } from './service/titulo.service';
+import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { TituloService } from './service/titulo.service';
     ClienteListComponent,
     ClienteCreateComponent,
     ClienteUpdateComponent,
-    ConfirmaComponent
+    ConfirmaComponent,
+    ChamadoListComponent
   ],
   imports: [
     BrowserModule,
