@@ -1,0 +1,49 @@
+.card {
+    width: 90%;
+    margin: 1rem auto;
+    border-bottom: 0px;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.div-button {
+    width: 100%;
+    float: left !important;
+}
+
+.edit {
+    color: #1591E2;
+}
+
+.delete {
+    color: #e0361f;
+    margin-left: 1rem;
+}
+
+mat-radio-group {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+}
+
+mat-radio-button {
+    margin: .5rem;
+}
