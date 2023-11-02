@@ -1,5 +1,17 @@
+<div class="page-container">
+	<header class="page-container-header">
+		<div>
+			<button mat-button class="menu-button" (click)="drawer.toggle()">
+				<mat-icon>{{ drawer.opened ? "menu_open" : "menu" }}</mat-icon>
+			</button>
+			<a routerLink="home">
+				<span class="app-title">e-protocolo</span>
+			</a>
+		</div>
+	</header>
+</div>
 <mat-drawer-container class="container" autosize>
-	<mat-drawer #drawer class="sidenav" mode="side">
+	<mat-drawer #drawer class="sidenav" mode="side" opened="true">
 		<img src="assets/img/side-image.svg" alt="Imagem de navegação" />
 		<mat-nav-list class="nav-list">
 			<a mat-list-item routerLink="home">
@@ -26,14 +38,6 @@
 	</mat-drawer>
 
 	<div class="sidenav-content">
-		<button
-			class="menu mat-elevation-z8"
-			mat-icon-button
-			(click)="drawer.toggle()"
-		>
-			<mat-icon>menu</mat-icon>
-		</button>
-		<app-header></app-header>
 		<router-outlet></router-outlet>
 	</div>
 </mat-drawer-container>

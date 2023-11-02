@@ -38,17 +38,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
 
+import { NgxMaskModule } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
+
 import { AuthInterceptorProvider } from './interceptor/auth.interceptor';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
-import { TituloService } from './service/titulo.service';
-import { NgxMaskModule } from 'ngx-mask';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
+import { ClienteListComponent } from "./components/cliente/cliente-list/cliente-list.component";
+import { ClienteCreateComponent } from "./components/cliente/cliente-create/cliente-create.component";
+import { ClienteUpdateComponent } from "./components/cliente/cliente-update/cliente-update.component";
 import { ConfirmaComponent } from './components/infra/confirma/confirma.component';
-/*
-import { NavComponent } from './components/nav/nav.component';
-import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
-*/
+import { TituloService } from './service/titulo.service';
 
 @NgModule({
   declarations: [
@@ -56,10 +56,13 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     NavComponent,
     HomeComponent,
     HeaderComponent,
-    TecnicoListComponent,
     LoginComponent,
+    TecnicoListComponent,
     TecnicoCreateComponent,
     TecnicoUpdateComponent,
+    ClienteListComponent,
+    ClienteCreateComponent,
+    ClienteUpdateComponent,
     ConfirmaComponent
   ],
   imports: [

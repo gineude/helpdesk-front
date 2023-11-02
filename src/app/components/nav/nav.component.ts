@@ -9,6 +9,7 @@ import { AuthService } from "src/app/service/auth.service";
 	styleUrls: ["./nav.component.css"],
 })
 export class NavComponent implements OnInit {
+
 	constructor(
 		private router: Router,
 		private authSevice: AuthService,
@@ -16,7 +17,7 @@ export class NavComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.router.navigate(["tecnicos"]);
+		this.router.navigate(["home"]);
 	}
 
 	logout(): void {
