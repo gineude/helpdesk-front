@@ -1,11 +1,11 @@
 <div class="page-container">
 	<header class="page-container-header">
-		<div>
+		<div class="fullWidth">
 			<button mat-button class="menu-button" (click)="drawer.toggle()">
 				<mat-icon>{{ drawer.opened ? "menu_open" : "menu" }}</mat-icon>
 			</button>
 			<a routerLink="home">
-				<span class="app-title">e-protocolo</span>
+				<span class="app-title">HELPDESK</span>
 			</a>
 		</div>
 	</header>
@@ -30,7 +30,7 @@
 				<i class="material-icons">support</i>
 				Chamados
 			</a>
-			<a mat-list-item routerLink="github">
+			<a mat-list-item href="https://github.com/gineude/helpdesk-front" target="_blank">
 				<i class="material-icons">code</i>
 				Gtihub
 			</a>

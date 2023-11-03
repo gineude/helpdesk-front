@@ -68,3 +68,11 @@ img {
 		rgba(0, 212, 255, 1) 100%
 	);
 }
+
+.fullWidth {
+    width: 100%;
+}
+
+.link-header {
+	justify-content: center;
+}
