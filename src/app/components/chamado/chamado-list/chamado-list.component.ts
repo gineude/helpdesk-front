@@ -5,6 +5,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { Chamado } from "src/app/models/chamado";
 import { ChamadoService } from "src/app/service/chamado.service";
 import { ConfirmaComponent } from "../../infra/confirma/confirma.component";
+import { ChamadoReadComponent } from "../chamado-read/chamado-read.component";
 
 @Component({
 	selector: "app-chamado-list",
@@ -38,7 +39,7 @@ export class ChamadoListComponent implements OnInit {
 	findAll() {
 		this.service.findAll().subscribe((response) => {
 			this.chamadoList = response;
-      this.setDataSourceTable(response);
+			this.setDataSourceTable(response);
 		});
 	}
 
@@ -52,19 +53,17 @@ export class ChamadoListComponent implements OnInit {
 		this.configPaginator.firstPageLabel = "";
 	}
 
-	confirmDelete(id: any): void {
-		const dialogRef = this.dialog.open(ConfirmaComponent, {
-			data: { id: id, service: this.service },
-		});
-
-		dialogRef.afterClosed().subscribe(() => {
-			this.findAll();
+	showViewChamado(id: any): void {
+		this.dialog.open(ChamadoReadComponent, {
+			height: "80%",
+			width: "90%",
+			data: { id: id },
 		});
 	}
 
 	orderByPrioridade(status: string): void {
 		if (status === "-1") {
-      this.setDataSourceTable(this.chamadoList);
+			this.setDataSourceTable(this.chamadoList);
 		}
 		let listFiltered: Chamado[] = [];
 		this.chamadoList.forEach((chamado) => {

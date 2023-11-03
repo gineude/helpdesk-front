@@ -1,0 +1,99 @@
+<h2 mat-dialog-title>Visualizar Chamado</h2>
+<hr />
+<mat-dialog-content>
+	<mat-card class="card mat-elevation-z0">
+		<mat-card-header class="alinhar-texto-center">
+			<mat-card-title></mat-card-title>
+		</mat-card-header>
+
+		<mat-card-content>
+			<div class="container">
+				<form class="form">
+					<mat-form-field class="fullWidth" appearance="outline">
+						<mat-label>Título do chamado</mat-label>
+						<input
+							[(ngModel)]="chamado.titulo"
+							[formControl]="titulo"
+							name="titulo"
+							matInput
+							[readonly]="true"
+						/>
+					</mat-form-field>
+
+					<div class="status-prioridade">
+						<mat-form-field appearance="outline">
+							<mat-label>Selecione um status</mat-label>
+							<mat-select
+								[(ngModel)]="chamado.status"
+								[formControl]="status"
+								name="status"
+								[disabled]="true"
+							>
+								<mat-option [value]="0">ABERTO</mat-option>
+								<mat-option [value]="1"
+									>EM ANDAMENTO</mat-option
+								>
+								<mat-option [value]="2">ENCERRADO</mat-option>
+							</mat-select>
+						</mat-form-field>
+
+						<mat-form-field appearance="outline">
+							<mat-label>Selecione uma prioridade</mat-label>
+							<mat-select
+								[(ngModel)]="chamado.prioridade"
+								[formControl]="prioridade"
+								name="prioridade"
+								[disabled]="true"
+							>
+								<mat-option [value]="0">BAIXA</mat-option>
+								<mat-option [value]="1">MÉDIA</mat-option>
+								<mat-option [value]="2">ALTA</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</div>
+
+					<div class="tecnico">
+						<mat-form-field class="fullWidth" appearance="outline">
+							<mat-label>Selecione uma técnico</mat-label>
+							<input
+								[(ngModel)]="chamado.nomeTecnico"
+								[formControl]="tecnico"
+								name="tecnico"
+								matInput
+								[readonly]="true"
+							/>
+						</mat-form-field>
+					</div>
+
+					<div class="cliente">
+						<mat-form-field class="fullWidth" appearance="outline">
+							<mat-label>Selecione uma cliente</mat-label>
+							<input
+								[(ngModel)]="chamado.nomeCliente"
+								[formControl]="cliente"
+								name="cliente"
+								matInput
+								[readonly]="true"
+							/>
+						</mat-form-field>
+					</div>
+
+					<mat-form-field class="fullWidth" appearance="outline">
+						<mat-label>Deixe uma descrição</mat-label>
+						<textarea
+							[(ngModel)]="chamado.observacoes"
+							[formControl]="descricao"
+							name="observacoes"
+							class="descricao"
+							matInput
+							[readonly]="true"
+						></textarea>
+					</mat-form-field>
+				</form>
+			</div>
+		</mat-card-content>
+	</mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-button class="mat-elevation-z8" color="warn" (click)="onNoClick()">Fechar</button>
+</mat-dialog-actions>

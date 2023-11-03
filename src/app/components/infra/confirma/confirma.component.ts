@@ -25,7 +25,7 @@ export class ConfirmaComponent implements OnInit {
 		this.data.service.delete(this.data.id).subscribe(
 			() => {
 				this.toastr.success("Registro deletado com sucesso!", "Delete");
-        this.dialogRef.close();
+				this.dialogRef.close();
 			},
 			(ex) => {
 				if (ex.error && ex.error.erros) {
@@ -35,7 +35,7 @@ export class ConfirmaComponent implements OnInit {
 				} else {
 					this.toastr.error(ex.error.message);
 				}
-        this.dialogRef.close();
+				this.dialogRef.close();
 			}
 		);
 	}
