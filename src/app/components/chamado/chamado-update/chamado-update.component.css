@@ -1,0 +1,36 @@
+.container {
+    width: 87%;
+    margin: auto;
+    padding: 1rem 1rem 3rem 1rem;
+    border-radius: .6rem;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    height: 10rem;
+}
+
+.status-prioridade {
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-prioridade mat-form-field {
+    width: 49%;
+}
+
+.descricao {
+    min-height: 6rem;
+    max-height: 10rem;
+}
+
+.button-cancelar {
+    margin-right: 1rem;
+}

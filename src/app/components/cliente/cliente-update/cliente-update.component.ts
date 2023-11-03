@@ -44,7 +44,6 @@ export class ClienteUpdateComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.tituloService.titulo = "Atualizar Cliente";
 		this.cliente.id = this.activeRouter.snapshot.paramMap.get("id");
 		this.findById();
 	}

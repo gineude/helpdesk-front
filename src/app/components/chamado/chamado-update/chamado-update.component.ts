@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Chamado } from "src/app/models/chamado";
 import { Cliente } from "src/app/models/cliente";
@@ -10,11 +10,11 @@ import { ClienteService } from "src/app/service/cliente.service";
 import { TecnicoService } from "src/app/service/tecnico.service";
 
 @Component({
-	selector: "app-chamado-create",
-	templateUrl: "./chamado-create.component.html",
-	styleUrls: ["./chamado-create.component.css"],
+	selector: "app-chamado-update",
+	templateUrl: "./chamado-update.component.html",
+	styleUrls: ["./chamado-update.component.css"],
 })
-export class ChamadoCreateComponent implements OnInit {
+export class ChamadoUpdateComponent implements OnInit {
 	chamado: Chamado = {
 		status: "",
 		titulo: "",
@@ -39,6 +39,7 @@ export class ChamadoCreateComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private toastr: ToastrService,
+		private activeRouter: ActivatedRoute,
 		private chamadoService: ChamadoService,
 		private clienteService: ClienteService,
 		private tecnicoService: TecnicoService
@@ -51,13 +52,15 @@ export class ChamadoCreateComponent implements OnInit {
 		this.clienteService.findAll().subscribe((response) => {
 			this.clientes = response;
 		});
+		this.chamado.id = this.activeRouter.snapshot.paramMap.get("id");
+		this.findById();
 	}
 
-	create(): void {
-		this.chamadoService.create(this.chamado).subscribe(
+	update(): void {
+		this.chamadoService.update(this.chamado).subscribe(
 			(response) => {
 				this.toastr.success(
-					"Chamado cadastrado com sucesso!",
+					"Chamado atualizado com sucesso!",
 					"Cadastro"
 				);
 				this.router.navigate(["chamados"]);
@@ -72,6 +75,12 @@ export class ChamadoCreateComponent implements OnInit {
 				}
 			}
 		);
+	}
+
+	findById(): void {
+		this.chamadoService.findById(this.chamado.id).subscribe((response) => {
+			this.chamado = response;
+		});
 	}
 
 	validaCampos(): boolean {
