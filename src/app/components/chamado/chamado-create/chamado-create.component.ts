@@ -1,8 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 import { Chamado } from "src/app/models/chamado";
 import { Cliente } from "src/app/models/cliente";
 import { Tecnico } from "src/app/models/tecnico";
+import { ChamadoService } from "src/app/service/chamado.service";
 import { ClienteService } from "src/app/service/cliente.service";
 import { TecnicoService } from "src/app/service/tecnico.service";
 
@@ -34,6 +37,9 @@ export class ChamadoCreateComponent implements OnInit {
 	cliente: FormControl = new FormControl(null, Validators.required);
 
 	constructor(
+    private router: Router,
+    private toastr: ToastrService,
+    private chamadoService: ChamadoService,
 		private clienteService: ClienteService,
 		private tecnicoService: TecnicoService
 	) {}
@@ -47,7 +53,26 @@ export class ChamadoCreateComponent implements OnInit {
 		});
 	}
 
-	create(): void {}
+	create(): void {
+    this.chamadoService.create(this.chamado).subscribe(
+			(response) => {
+				this.toastr.success(
+					"Chamado cadastrado com sucesso!",
+					"Cadastro"
+				);
+				this.router.navigate(["chamados"]);
+			},
+			(ex) => {
+				if (ex.error && ex.error.erros) {
+					ex.error.errors.array.forEach((element) => {
+						this.toastr.error(element.message);
+					});
+				} else {
+					this.toastr.error(ex.error.message);
+				}
+			}
+		);
+  }
 
 	validaCampos(): boolean {
 		return (

@@ -65,7 +65,7 @@
 						>
 							<mat-option
 								*ngFor="let tecnico of tecnicos; index as i"
-								[value]="tecnico.nome"
+								[value]="tecnico.id"
 							>
 								{{ tecnico.nome }}
 							</mat-option>
@@ -84,10 +84,9 @@
 						>
 							<mat-option
 								*ngFor="let cliente of clientes; index as i"
-								[value]="cliente.nome"
+								[value]="cliente.id"
 							>
 								{{ cliente.nome }}
-								{{ cliente.email }}
 							</mat-option>
 						</mat-select>
 					</mat-form-field>
